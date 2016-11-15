@@ -1,29 +1,29 @@
-var properties = {
+const properties = {
   port: 8080, // LiveReload server port
   folders: {
-    build: '../', // Deploy folder
-    src: 'source', // Dev folder
+    build: 'dist', // Deploy folder
+    src: 'src', // Dev folder
   }
 }
 
-var plugins = {
-  js: [
-    'bower_components/jquery/dist/jquery.min.js',
-  ],
-  css: [
-    'bower_components/normalize-scss/normalize.css',
-  ]
-}
+const
+  mainBowerFiles = require('main-bower-files');
 
-var
+const plugins = {
+  js: mainBowerFiles('**/*.js'),
+  css: mainBowerFiles(['**/*.css', '**/*.scss']),
+};
+
+const
   gulp = require('gulp'),
   connect = require('gulp-connect'),
   sourcemaps = require('gulp-sourcemaps'),
   concat = require('gulp-concat'),
-  jade = require('gulp-jade'),
+  pug = require('gulp-pug'),
   sass = require('gulp-sass'),
   prefix = require('gulp-autoprefixer')
   babel = require('gulp-babel'),
+  react = require('gulp-react'),
   //uglify = require('gulp-uglify'),
   watch = require('gulp-watch');
   //cleanCSS = require('gulp-clean-css');
@@ -37,10 +37,13 @@ gulp.task('scripts', function() {
   return gulp.src([
       properties.folders.src + '/scripts/main.js',
     ])
+    .pipe(react())
     .pipe(sourcemaps.init())
     //.pipe(uglify())
-    .pipe(concat('main.js'))
-    .pipe(babel())
+    .pipe(concat('main.jsx'))
+    .pipe(babel({
+      "presets": ["es2015"]
+    }))
     .on('error', onError)
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(properties.folders.build + '/scripts'))
@@ -56,15 +59,15 @@ gulp.task('vendor', function () {
     .pipe(gulp.dest(properties.folders.build + '/scripts/'));
 });
 
-gulp.task('jade', function() {
-	gulp.src(properties.folders.src + '/views/*.jade')
-		.pipe(jade({
+gulp.task('pug', function() {
+	gulp.src(properties.folders.src + '/views/*.pug')
+		.pipe(pug({
 			pretty: true
 		}))
     .on('error', onError)
-		.pipe(gulp.dest(properties.folders.build))
+		.pipe(gulp.dest('./'))
     .on('end', function(){
-      gulp.src(properties.folders.build + '/**/*.html')
+      gulp.src('../*.html')
         .pipe(connect.reload());
     });
 });
@@ -89,15 +92,15 @@ gulp.task('server', function() {
 });
 
 gulp.task('watch', function() {
-	watch(properties.folders.src + '/views/**/*.jade', function() {
-    gulp.start('jade');
+	watch(properties.folders.src + '/views/**/*.pug', function() {
+    gulp.start('pug');
 	});
 	watch(properties.folders.src + '/styles/**/*.scss', function() {
     gulp.start('sass');
 	});
-	watch(properties.folders.src + '/scripts/**/*.js', function() {
+	watch(properties.folders.src + '/scripts/**/*.jsx', function() {
     gulp.start('scripts');
 	});
 });
 
-gulp.task('default', ['server', 'jade', 'scripts', 'vendor', 'sass', 'watch']);
+gulp.task('default', ['server', 'pug', 'scripts', 'vendor', 'sass', 'watch']);

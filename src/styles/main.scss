@@ -25,11 +25,11 @@
   text-decoration: none;
   color: #fff;
 
-  .bookmark-link-head {
+  &-link-head {
     margin: 0 0 10px 0;
   }
 
-  .bookmark-link-descr {
+  &-link-descr {
     margin: 0;
   }
 }

@@ -1,3 +1,4 @@
+alert(1)
 var BookmarkInfo = function(props) {
   return (
     <a className="bookmark-link" href={props.link}>
