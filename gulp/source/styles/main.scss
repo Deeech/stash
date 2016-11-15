@@ -1,0 +1,49 @@
+.main-wrapper {
+  display: flex;
+}
+
+.bookmarks-holder {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-basis: 600px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.bookmark {
+  width: 400px;
+  height: 200px;
+  background-color: #999;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 10px 10px 0;
+}
+
+.bookmark-link {
+  text-decoration: none;
+  color: #fff;
+
+  .bookmark-link-head {
+    margin: 0 0 10px 0;
+  }
+
+  .bookmark-link-descr {
+    margin: 0;
+  }
+}
+
+section {
+  flex-grow: 3;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.categories {
+  flex-grow: 1;
+  height: 100vh;
+  min-width: 300px;
+  background-color: #777;
+  margin-right: 20px;
+}

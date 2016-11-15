@@ -1,0 +1,32 @@
+
+extends templates/layout
+block vars
+  - var title = 'TRACKER'
+
+block content
+  script.
+    var tasksData = [
+      {
+        id: 1,
+        name: 'Вёрстка',
+        project: 'test',
+        time: '1000'
+      }, {
+        id: 2,
+        name: 'Адаптация',
+        project: 'test',
+        time: '800'
+      } , {
+        id: 3,
+        name: 'Программирование',
+        project: 'test2',
+        time: '1500'
+      }
+    ];
+
+  #tracker
+  #timer
+    script(src="scripts/react.js")
+    script(src="scripts/react-dom.js")
+    script(src="scripts/browser.js")
+    script(type="text/babel" src="scripts/components.js")
