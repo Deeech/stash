@@ -73,13 +73,13 @@ let bookmarksData = [
     id: 1,
     name: 'React',
     description: 'A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES',
-    link: 'facebook.github.io/react',
+    link: 'https://facebook.github.io/react',
     category: 'code'
   }, {
     id: 2,
     name: 'Angular',
     description: 'One framework. Mobile & desktop.',
-    link: 'angular.io',
+    link: 'https://angular.io',
     category: 'code'
   }, {
     id: 3,
@@ -91,13 +91,13 @@ let bookmarksData = [
     id: 4,
     name: 'N+1',
     description: 'N+1: научные статьи, новости, открытия',
-    link: 'nplus1.ru',
+    link: 'https://nplus1.ru',
     category: 'science'
   }, {
     id: 5,
     name: 'Steam',
     description: 'Wellcome to Steam',
-    link: 'store.steampowered.com',
+    link: 'https://store.steampowered.com',
     category: 'entertainment'
   }
 ];
