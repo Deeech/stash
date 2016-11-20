@@ -35,7 +35,7 @@ function onError (err) {
 
 gulp.task('scripts', function() {
   return gulp.src([
-      properties.folders.src + '/scripts/main.js',
+      properties.folders.src + '/scripts/main.jsx',
     ])
     .pipe(react())
     .pipe(sourcemaps.init())
