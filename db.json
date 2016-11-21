@@ -1,0 +1,5 @@
+{ "_id": { "$oid" : "53de0a545ac981c45fc30aba" }, "name": "React", "description": "A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES", "link": "https://facebook.github.io/react", "category": "code" }
+{ "_id": { "$oid" : "53de0a545ac981c45fc30abb" }, "name": "Angular", "description": "One framework. Mobile & desktop.", "link": "https://angular.io", "category": "code" }
+{ "_id": { "$oid" : "53de0a545ac981c45fc30abc" }, "name": "Science AAAS", "description": "International weekly science journal", "link": "#", "category": "science" }
+{ "_id": { "$oid" : "53de0a545ac981c45fc30abd" }, "name": "N+1", "description": "N+1: научные статьи, новости, открытия", "link": "https://nplus1.ru", "category": "science" }
+{ "_id": { "$oid" : "53de0a545ac981c45fc30abe" }, "name": "Steam", "description": "Wellcome to Steam", "link": "https://store.steampowered.com", "category": "entertainment" }
